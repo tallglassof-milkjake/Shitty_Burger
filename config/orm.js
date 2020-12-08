@@ -1,6 +1,6 @@
-const connection = require("./connection.js");
+let connection = require("./connection.js");
 
-const orm = {
+let orm = {
     selectAll: function(callback) {
         let queryString = 'SELECT * FROM burgers';
         connection.query(queryString, function(err, res) {
