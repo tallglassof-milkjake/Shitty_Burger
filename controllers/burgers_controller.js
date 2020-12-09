@@ -6,9 +6,9 @@ const router = express.Router();
 router.get("/", function(req, res) {
     burgers.selectAll(function(cb) {
         let object = {
-            burger: cb
+            burgers: cb
         };
-        console.log(data)
+        
         res.render("index", object);
     });
     

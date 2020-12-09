@@ -1,14 +1,33 @@
-<h1>Eat The Burger</h1>
+<div class="container">
 
-<h2>The Burgers</h2>
+    {{!-- Heading Section --}}
+    <section class="heading">
+        <div class="row text-center">
+            <div class="col ">
+                <h1 class="display-2">Eat The Burger</h1>
 
-<ul>
-    <li>
-        {{#each burgers}}
-            {{!-- {{#unless devoured}}
+                <h2 class="display-4">The Burgers</h2>
 
-            {{/unless}} --}}
-        {{/each}}
-    </li>
-</ul>
+                <img src="../public/assets/burger.png" class="img-fluid" alt="Juicy Burger">
+            </div>
+        </div>   
+    </section>
+    
+    {{!-- Input Section/Create Burger --}}
+    <section class="input">
 
+    </section>
+
+    {{!-- Output/Burgerlist and show un eaten/eaten burgeres --}}
+    <section class="outputlist">
+        <ul>
+                {{#each burgers}}
+                    {{#unless devoured}}
+                        <li><span> {{burger_name}} </span></li>
+                    {{/unless}}
+                {{/each}}
+        </ul>
+    </section>
+    
+
+</div>
