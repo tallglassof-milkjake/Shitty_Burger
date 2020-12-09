@@ -3,29 +3,70 @@
     {{!-- Heading Section --}}
         <div class="row text-center">
             <div class="col">
+                <img src="./public/assets/img/burger.png" class="img-fluid big-burger w-50" alt="Juicy Burger">
+
                 <h1 class="display-2">Eat The Burger</h1>
 
                 <h2 class="display-4">The Burgers</h2>
-
-                <img src="../public/assets/twoburgers.png" class="img-fluid" alt="Juicy Burger">
             </div>
         </div>   
     
     {{!-- Input Section/Create Burger --}}
-    <section class="inputform">
-
+    <section class="inputform d-flex justify-content-center">
+        <form>
+            {{!-- New Burger --}}
+            <div class="form-group text-center">
+                <label for="newBurger">Create a new Burger</label>
+                <input type="text" class="form-control" id="newBurger" aria-describedby="create_burger">
+                <small id="create_burger" class="form-text text-muted">Name it whatever you'd like!</small>
+            </div>
+    
+            {{!-- Submit Button --}}
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
     </section>
 
     {{!-- Output/Burgerlist and show un eaten/eaten burgeres --}}
-    <section class="outputlist">
-        <ul>
-                {{#each burgers}}
-                    {{#unless devoured}}
-                        <li><span> {{burger_name}} </span></li>
-                    {{/unless}}
-                {{/each}}
-        </ul>
+    <section class="outputlist justify-content-center">
+        <div class="row">
+            <div class="col-6">
+                <table class="table w-100">
+                    {{#each burgers}}
+                        {{#unless devoured}}
+                            <tr>
+                                <td><i class="fas fa-hamburger"></i><span> {{burger_name}} </span></td>
+                                <td><i class="fas fa-utensils"></i></td>
+                            </tr>
+                        {{/unless}}
+                    {{/each}}
+                </table>
+                {{!-- <ul>
+                    {{#each burgers}}
+                        {{#unless devoured}}
+                            <li class="lead"><i class="fas fa-hamburger"></i><span> {{burger_name}} </span><i class="fas fa-utensils"></i></li>
+                        {{/unless}}
+                    {{/each}}
+                </ul> --}}
+            </div>
+            <div class="col-6">
+                <table class="table w-100">
+                    {{#each burgers}}
+                        {{#if devoured}}
+                            <tr>
+                                <td><i class="fas fa-hamburger"></i><span> {{burger_name}} </span></td>
+                                <td><i class="fas fa-utensils"></i></td>
+                            </tr>
+                        {{/if}}
+                    {{/each}}
+                </table>
+            </div>
+        </div>
     </section>
+
+
+    
     
 
 </div>
