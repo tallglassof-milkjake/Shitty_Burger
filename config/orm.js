@@ -1,5 +1,15 @@
 let connection = require("./connection.js");
 
+function printQuestionMarks(num) {
+    let arr = [];
+  
+    for (let i = 0; i < num; i++) {
+      arr.push("?");
+    }
+  
+    return arr.toString();
+  }
+
 let orm = {
     selectAll: function(tableName, cb) {
         let queryString = 'SELECT * FROM ??';
@@ -10,9 +20,10 @@ let orm = {
         });
     },
     
-    insertOne: function(cb) {
-        let queryString = "INSERT INTO burgers (burger_name, devoured) VALUES ('??', false)";
-        connection.query(queryString, function(err, res) {
+    insertOne: function(tableName, colName, burgerName, cb) {
+        let queryString = "INSERT INTO ?? (??) VALUES (?)";
+        
+        connection.query(queryString, [tableName, colName, burgerName], function(err, res) {
             if (err) throw err;
 
             cb(res);

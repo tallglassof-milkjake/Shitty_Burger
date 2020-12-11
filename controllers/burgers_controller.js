@@ -8,19 +8,27 @@ router.get("/", function(req, res) {
         let object = {
             burgers: cb
         };
+
+        let validate = /^[A-Za-z]+$/;
         
+        if (object == validate) {
+            
+        }
         res.render("index", object);
     });
     
 });
 
-// router.post("/api/burgers", function(req, res) {
-//     burgers.insertOne(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], function(result) {
-//         res.json({id: result.id});
-//     });
-// });
+router.post("/api/burger/:newBurger", function(req, res) {
+    let newBurger = req.params.newBurger;
 
-// router.put("/api/burger/:id", function(req, res) {
+    burgers.insertOne(newBurger, function(result){
+        res.json(result);
+    });
+});
+
+// router.put("/api/update/:burger_name", function(req, res) {
+
 //     let condition = `id = ${req.params.id}`;
 
 //     console.log("condition", condition);
