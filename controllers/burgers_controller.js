@@ -8,12 +8,7 @@ router.get("/", function(req, res) {
         let object = {
             burgers: cb
         };
-
-        let validate = /^[A-Za-z]+$/;
         
-        if (object == validate) {
-            
-        }
         res.render("index", object);
     });
     
@@ -27,24 +22,23 @@ router.post("/api/burger/:newBurger", function(req, res) {
     });
 });
 
-// router.put("/api/update/:burger_name", function(req, res) {
+router.put("/api/burger/:id", function(req, res) {
 
-//     let condition = `id = ${req.params.id}`;
+    let condition = `id = ${req.params.id}`;
 
-//     console.log("condition", condition);
+    console.log("condition", condition);
 
-//     burgers.updateOne(
-//         {
-//             devoured: req.body.devoured
-//         },
-//         condition,
-//         function(result) {
-//             if (result.changedRows === 0) {
-//                 return res.status(404).end();
-//             }
-//             res.status(200).end();
-//         }
-//     );
-// });
+    console.log(req.params.id)
+
+    burgers.updateOne({
+            devoured: true
+        }, condition, function(result) {
+            if (result.changedRows === 0) {
+                return res.status(404).end();
+            }
+            res.status(200).end();
+        }
+    );
+});
 
 module.exports = router;

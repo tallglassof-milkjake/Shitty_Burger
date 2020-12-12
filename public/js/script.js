@@ -17,6 +17,26 @@ $(document).ready( function() {
             });
         });
     
+        $(".burgerList").on("click", "#devourBTN", function(event) {
+            event.preventDefault();
+            
+            console.log("please");
+
+            let id = $(this).data("id");
+
+            let isDevoured = {
+                devoured: true
+            }
+
+            $.ajax("api/burger/" + id, {
+                type: 'PUT',
+                data: isDevoured
+            }).then(function() {
+                console.log("something is happening");
+
+                location.reload();
+            })
+        });
     
 
     

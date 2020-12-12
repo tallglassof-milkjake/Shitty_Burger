@@ -39,12 +39,13 @@
                 <table class="table w-100">
                     {{#each burgers}}
                         {{#unless devoured}}
-                            <tr>
+                            <tr class="burgerList">
                                 <td>
-                                    <i class="fas fa-hamburger"></i><span id="burger_name"> {{burger_name}} </span><button class="btn" id="devourBTN">Devour</button>
+                                    <i class="fas fa-hamburger"></i>
+                                    <span id="burger_name"> {{burger_name}} </span>
                                 </td>
                                 <td>
-                                    
+                                    <button class="btn" data-newDevoured="{{devoured}}" data-id="{{id}}" id="devourBTN">Devour</button>
                                 </td>
                             </tr>
                         {{/unless}}
