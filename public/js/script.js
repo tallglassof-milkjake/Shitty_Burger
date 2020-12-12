@@ -16,28 +16,68 @@ $(document).ready( function() {
                 
             });
         });
-    
-        $(".burgerList").on("click", "#devourBTN", function(event) {
+
+        $("#changeState").on("click", function(event) {
             event.preventDefault();
-            
-            console.log("please");
 
             let id = $(this).data("id");
-
-            let isDevoured = {
-                devoured: true
-            }
+            const newDevoured = $(this).data("newDevoured");
+            const newState = {
+                devoured: newDevoured
+            };
 
             $.ajax("api/burger/" + id, {
                 type: 'PUT',
-                data: isDevoured
+                data: newState
             }).then(function() {
-                console.log("something is happening");
+                console.log("something is happening", newDevoured);
 
                 location.reload();
             })
         });
     
+        // $("#changeState").on("click", function(event) {
+        //     event.preventDefault();
+            
+        //     console.log("please");
+
+        //     let id = $(this).data("id");
+
+        //     let isDevoured = {
+        //         devoured: true
+        //     }
+
+        //     $.ajax("api/burger/" + id, {
+        //         type: 'PUT',
+        //         data: isDevoured
+        //     }).then(function() {
+        //         console.log("something is happening");
+
+        //         location.reload();
+        //     })
+        // });
+    
+
+        // $(".eatenList").on("click", "#eatAgainBTN", function(event) {
+        //     event.preventDefault();
+            
+        //     console.log("please");
+
+        //     let id = $(this).data("id");
+
+        //     let isDevoured = {
+        //         devoured: false
+        //     }
+
+        //     $.ajax("api/burger/" + id, {
+        //         type: 'PUT',
+        //         data: isDevoured
+        //     }).then(function() {
+        //         console.log("something is happening");
+
+        //         location.reload();
+        //     })
+        // });
 
     
 

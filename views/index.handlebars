@@ -39,7 +39,10 @@
                 <table class="table w-100">
                     {{#each burgers}}
                         {{#unless devoured}}
-                            <tr class="burgerList">
+
+                            {{>burgers/burger-block devoured=true}}
+
+                            {{!-- <tr class="burgerList">
                                 <td>
                                     <i class="fas fa-hamburger"></i>
                                     <span id="burger_name"> {{burger_name}} </span>
@@ -47,31 +50,25 @@
                                 <td>
                                     <button class="btn" data-newDevoured="{{devoured}}" data-id="{{id}}" id="devourBTN">Devour</button>
                                 </td>
-                            </tr>
+                            </tr> --}}
                         {{/unless}}
                     {{/each}}
                 </table>
-                {{!-- <span ><i class="fas fa-utensils"></i></span> --}}
-                {{!-- <ul>
-                    {{#each burgers}}
-                        {{#unless devoured}}
-                            <li class="lead"><i class="fas fa-hamburger"></i><span> {{burger_name}} </span><i class="fas fa-utensils"></i></li>
-                        {{/unless}}
-                    {{/each}}
-                </ul> --}}
             </div>
             <div class="col-6">
                 <table class="table w-100">
                     {{#each burgers}}
                         {{#if devoured}}
-                            <tr>
+
+                            {{>burgers/burger-block devoured=false}}
+                            {{!-- <tr class="eatenList">
                                 <td>
                                     <i class="fas fa-hamburger"></i><span> {{burger_name}} </span>
                                 </td>
                                 <td>
-                                    <i class="fas fa-utensils"></i>
+                                    <button class="btn" data-newDevoured="{{devoured}}" data-id="{{id}}" id="eatAgainBTN">Eat Again</button><i class="fas fa-utensils"></i>
                                 </td>
-                            </tr>
+                            </tr> --}}
                         {{/if}}
                     {{/each}}
                 </table>
