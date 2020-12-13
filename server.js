@@ -7,9 +7,11 @@ const app = express();
 
 const PORT = process.env.PORT || 3005;
 
-app.use("/public",express.static(path.join(__dirname, "public")));
-app.use(bodyParser.urlencoded({extended: false }));
-app.use(bodyParser.json({type: "*/*"}));
+// app.use("/public",express.static(path.join(__dirname, "public")));
+app.use(express.static('public'));
+
+app.use(express.urlencoded({ extended: true}));
+app.use(express.json());
 
 app.set("view engine", "handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));

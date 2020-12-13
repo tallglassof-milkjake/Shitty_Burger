@@ -17,7 +17,7 @@ $(document).ready( function() {
             });
         });
 
-        $("#changeState").on("click", function(event) {
+        $(".card-body").on("click", "#changeState", function(event) {
             event.preventDefault();
 
             let id = $(this).data("id");

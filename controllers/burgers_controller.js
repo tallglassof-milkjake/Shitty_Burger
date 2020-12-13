@@ -17,6 +17,8 @@ router.get("/", function(req, res) {
 router.post("/api/burger/:newBurger", function(req, res) {
     let newBurger = req.params.newBurger;
 
+    console.log(req.body);
+
     burgers.insertOne(newBurger, function(result){
         res.json(result);
     });
@@ -28,20 +30,26 @@ router.put("/api/burger/:id", function(req, res) {
 
     console.log("condition", condition);
 
-    console.log(req.params.id);
+    // console.log(req.params.id);
     console.log(req.body);
 
-    burgers.updateOne({
-            devoured: req.body.newDevoured
-        }, 
-        condition, 
-        function(result) {
-            if (result.changedRows === 0) {
-                return res.status(404).end();
-            }
-            res.status(200).end();
-        }
-    );
+    burgers.updateOne({ devoured: req.body.devoured }, condition, function(result) {
+        res.json(result);
+    })
+
+    // burgers.updateOne({
+    //         devoured: req.body.devoured
+    //     }, 
+    //     condition, 
+    //     function(result) {
+    //         if (result.changedRows === 0) {
+    //             // return res.status(404).end();
+                
+    //         }
+    //         res.status(200).end();
+
+    //     }
+    // );
 });
 
 module.exports = router;

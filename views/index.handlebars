@@ -3,7 +3,7 @@
     {{!-- Heading Section --}}
         <div class="row text-center">
             <div class="col">
-                <img src="./public/img/burger.png" class="img-fluid big-burger w-50" alt="Juicy Burger">
+                <img src="/img/burger.png" class="img-fluid big-burger w-50" alt="Juicy Burger">
 
                 <h1 class="display-2">Eat The Burger</h1>
 
@@ -36,7 +36,7 @@
     <section class="outputlist justify-content-center">
         <div class="row">
             <div class="col-6">
-                <table class="table w-100">
+                <table class="table w-100" id="botDevoured">
                     {{#each burgers}}
                         {{#unless devoured}}
 
@@ -56,7 +56,7 @@
                 </table>
             </div>
             <div class="col-6">
-                <table class="table w-100">
+                <table class="table w-100" id="isDevoured">
                     {{#each burgers}}
                         {{#if devoured}}
 
