@@ -23,10 +23,10 @@ $(document).ready( function() {
             let id = $(this).data("id");
             const newDevoured = $(this).data("newDevoured");
             const newState = {
-                devoured: newDevoured
+                devoured: 1
             };
 
-            $.ajax("api/burger/" + id, {
+            $.ajax("/api/burger/" + id, {
                 type: 'PUT',
                 data: newState
             }).then(function() {

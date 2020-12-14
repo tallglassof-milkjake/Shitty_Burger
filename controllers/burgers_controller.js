@@ -24,16 +24,20 @@ router.post("/api/burger/:newBurger", function(req, res) {
     });
 });
 
+router.get("/api/burger", function(req, res) {
+    res.json(res);
+})
+
 router.put("/api/burger/:id", function(req, res) {
 
-    let condition = `id = ${req.params.id}`;
+    let requiurement = `id = ${req.params.id}`;
 
-    console.log("condition", condition);
+    console.log("requirement", requiurement);
 
     // console.log(req.params.id);
     console.log(req.body);
 
-    burgers.updateOne({ devoured: req.body.devoured }, condition, function(result) {
+    burgers.updateOne({ devoured: req.body.devoured }, requiurement, function(result) {
         res.json(result);
     })
 

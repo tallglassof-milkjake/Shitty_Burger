@@ -13,8 +13,8 @@ const burgers = {
         });
     },
 
-    updateOne: function(objColVals, condition, cb) {
-        orm.updateOne("burgers", objColVals, condition, function(res) {
+    updateOne: function(devoured, requiurement, cb) {
+        orm.updateOne("burgers", devoured, requiurement, function(res) {
             cb(res);
         });
     }

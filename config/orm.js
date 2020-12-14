@@ -42,20 +42,20 @@ let orm = {
         });
     },
 
-    updateOne: function(table, objColVals, condition, cb) {
+    updateOne: function(table, devoured, requiurement, cb) {
         let queryString = `UPDATE ${table}`;
 
         queryString += " SET ";
-        queryString += objToSql(objColVals);
+        queryString += objToSql(devoured);
         queryString += " WHERE ";
-        queryString += condition;
+        queryString += requiurement;
 
         console.log(queryString);
 
         connection.query(queryString, function(err, res) {
             if (err) throw err;
 
-            cb(res.json());
+            cb(res);
         });
     }
     
