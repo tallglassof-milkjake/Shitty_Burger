@@ -1,5 +1,6 @@
 let connection = require("./connection.js");
 
+// Helper function taken from a class activity on this assignments weeks homework
 function objToSql(ob) {
     var arr = [];
   

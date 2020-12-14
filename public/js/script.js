@@ -1,5 +1,6 @@
 $(document).ready( function() {
 
+        // Function to create a new burger and append it to the un devoured burger list
         $(".form-group").on("click", "#submitBTN", function(event) {
             event.preventDefault();
 
@@ -17,11 +18,11 @@ $(document).ready( function() {
             });
         });
 
+        // Function to move th burger card to the devoured side
         $(".card-body").on("click", "#changeEaten", function(event) {
             event.preventDefault();
 
             let id = $(this).data("id");
-            const newDevoured = $(this).data("newDevoured");
             const newState = {
                 devoured: 1
             };
@@ -30,17 +31,16 @@ $(document).ready( function() {
                 type: 'PUT',
                 data: newState
             }).then(function() {
-                console.log("something is happening", newDevoured);
 
                 location.reload();
             })
         });
 
+        // Function to move th burger card back to the non devoured side
         $(".card-body").on("click", "#changeNotEaten", function(event) {
             event.preventDefault();
 
             let id = $(this).data("id");
-            const newDevoured = $(this).data("newDevoured");
             const newState = {
                 devoured: 0
             };
@@ -49,56 +49,8 @@ $(document).ready( function() {
                 type: 'PUT',
                 data: newState
             }).then(function() {
-                console.log("something is happening", newDevoured);
-
+            
                 location.reload();
             })
         });
-    
-        // $("#changeState").on("click", function(event) {
-        //     event.preventDefault();
-            
-        //     console.log("please");
-
-        //     let id = $(this).data("id");
-
-        //     let isDevoured = {
-        //         devoured: true
-        //     }
-
-        //     $.ajax("api/burger/" + id, {
-        //         type: 'PUT',
-        //         data: isDevoured
-        //     }).then(function() {
-        //         console.log("something is happening");
-
-        //         location.reload();
-        //     })
-        // });
-    
-
-        // $(".eatenList").on("click", "#eatAgainBTN", function(event) {
-        //     event.preventDefault();
-            
-        //     console.log("please");
-
-        //     let id = $(this).data("id");
-
-        //     let isDevoured = {
-        //         devoured: false
-        //     }
-
-        //     $.ajax("api/burger/" + id, {
-        //         type: 'PUT',
-        //         data: isDevoured
-        //     }).then(function() {
-        //         console.log("something is happening");
-
-        //         location.reload();
-        //     })
-        // });
-
-    
-
-    
 });

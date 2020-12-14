@@ -1,0 +1,9 @@
+body {
+    background-color: #FAE9BD;
+}
+
+.card {
+    width: 100% !important;
+    text-align: center;
+    background-color: #BECEFA;
+}

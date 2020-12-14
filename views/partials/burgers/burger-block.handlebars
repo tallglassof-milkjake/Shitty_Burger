@@ -1,12 +1,16 @@
-<div class="card" style="width: 18rem;">
+<div class="card mb-5">
   
     <div class="card-body">
-        <h5 class="card-title">{{burger_name}}</h5>
+        <i class="fas fa-hamburger fa-5x pt-2 pb-2"></i>
+
+        <h5 class="card-title pb-2">{{burger_name}}</h5>
         
-        <a class="btn btn-outline-success" id="changeEaten" data-id="{{id}}" data-newDevoured="{{devoured}}">
-            {{#if devoured}}Devour!
-            {{else}}Try Again!
-            {{/if}}
+        <a id="changeEaten" data-id="{{id}}" data-newDevoured="{{devoured}}">
+            <button class="btn btn-outline-dark">
+                {{#if devoured}}Devour!
+                {{else}}Try Again!
+                {{/if}}
+            </button>
         </a>
     </div>
 </div>
