@@ -17,13 +17,32 @@ $(document).ready( function() {
             });
         });
 
-        $(".card-body").on("click", "#changeState", function(event) {
+        $(".card-body").on("click", "#changeEaten", function(event) {
             event.preventDefault();
 
             let id = $(this).data("id");
             const newDevoured = $(this).data("newDevoured");
             const newState = {
                 devoured: 1
+            };
+
+            $.ajax("/api/burger/" + id, {
+                type: 'PUT',
+                data: newState
+            }).then(function() {
+                console.log("something is happening", newDevoured);
+
+                location.reload();
+            })
+        });
+
+        $(".card-body").on("click", "#changeNotEaten", function(event) {
+            event.preventDefault();
+
+            let id = $(this).data("id");
+            const newDevoured = $(this).data("newDevoured");
+            const newState = {
+                devoured: 0
             };
 
             $.ajax("/api/burger/" + id, {

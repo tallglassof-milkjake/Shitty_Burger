@@ -42,13 +42,13 @@ let orm = {
         });
     },
 
-    updateOne: function(table, devoured, requiurement, cb) {
+    updateOne: function(table, devoured, requirement, cb) {
         let queryString = `UPDATE ${table}`;
 
         queryString += " SET ";
         queryString += objToSql(devoured);
         queryString += " WHERE ";
-        queryString += requiurement;
+        queryString += requirement;
 
         console.log(queryString);
 

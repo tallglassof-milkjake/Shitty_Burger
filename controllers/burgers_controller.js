@@ -30,14 +30,14 @@ router.get("/api/burger", function(req, res) {
 
 router.put("/api/burger/:id", function(req, res) {
 
-    let requiurement = `id = ${req.params.id}`;
+    let requirement = `id = ${req.params.id}`;
 
-    console.log("requirement", requiurement);
+    console.log("requirement", requirement);
 
     // console.log(req.params.id);
     console.log(req.body);
 
-    burgers.updateOne({ devoured: req.body.devoured }, requiurement, function(result) {
+    burgers.updateOne({ devoured: req.body.devoured }, requirement, function(result) {
         res.json(result);
     })
 

@@ -42,15 +42,6 @@
 
                             {{>burgers/burger-block devoured=true}}
 
-                            {{!-- <tr class="burgerList">
-                                <td>
-                                    <i class="fas fa-hamburger"></i>
-                                    <span id="burger_name"> {{burger_name}} </span>
-                                </td>
-                                <td>
-                                    <button class="btn" data-newDevoured="{{devoured}}" data-id="{{id}}" id="devourBTN">Devour</button>
-                                </td>
-                            </tr> --}}
                         {{/unless}}
                     {{/each}}
                 </table>
@@ -61,14 +52,7 @@
                         {{#if devoured}}
 
                             {{>burgers/burger-block devoured=false}}
-                            {{!-- <tr class="eatenList">
-                                <td>
-                                    <i class="fas fa-hamburger"></i><span> {{burger_name}} </span>
-                                </td>
-                                <td>
-                                    <button class="btn" data-newDevoured="{{devoured}}" data-id="{{id}}" id="eatAgainBTN">Eat Again</button><i class="fas fa-utensils"></i>
-                                </td>
-                            </tr> --}}
+                            
                         {{/if}}
                     {{/each}}
                 </table>
